@@ -1,6 +1,6 @@
 def main [] {
-  let packages = [{cargo -V}, {rustup -V}];
-  let package_names = ["cargo", "rustup"];
+  let packages = [{rustup -V}, {cargo -V}];
+  let package_names = ["rustup", "cargo"];
 
   let rust_tools = [ "eza", "fd-find", "mprocs", "git-graph", "git-delta" ];
 
