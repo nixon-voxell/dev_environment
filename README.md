@@ -11,7 +11,7 @@ Minimal nu script to setup and update development environment in [Nushell](https
 
 ### Step `#1`: Check package installations.
 
-This script requires `rustup` and `cargo` to be installed.
+This script requires [`rustup`](https://www.rust-lang.org/tools/install) and `cargo` to be installed.
 
 ### Step `#2`: Install essential 🦀 Rust tools.
 
