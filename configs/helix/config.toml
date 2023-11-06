@@ -1,0 +1,43 @@
+theme = "monokai_pro"
+
+[editor]
+shell = ["nu", "-c"]
+line-number = "relative"
+cursorline = true
+color-modes = true
+true-color = true
+bufferline = "always"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.indent-guides]
+render = true
+character = "|"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+"C-i" = "jump_forward"
+
+[keys.insert]
+"C-b" = "move_char_left"
+"C-f" = "move_char_right"
+"A-b" = "move_prev_word_start"
+"A-f" = "move_next_word_start"
+"C-p" = "move_line_up"
+"C-n" = "move_line_down"
+"C-a" = "goto_line_start"
+"C-s" = "goto_first_nonwhitespace"
+"C-e" = "goto_line_end_newline"
+
+[editor.search]
+smart-case = false

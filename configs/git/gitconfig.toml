@@ -1,0 +1,18 @@
+[core]
+editor = "hx"
+pager = "delta"
+autocrlf = true
+
+[interactive]
+diffFilter = "delta --color-only"
+
+[delta]
+navigate = true
+light = false
+side-by-side = true
+
+[merge]
+conflictstyle = "diff3"
+
+[diff]
+colorMoved = "default"
