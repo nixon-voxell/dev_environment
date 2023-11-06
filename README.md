@@ -29,7 +29,7 @@ These are the rust tools that will be installed during the setup:
 
 ### Step `#3`: Setup helix.
 
-[Helix](https://helix-editor.com/) will be installed.
+[Helix](https://helix-editor.com/) will be installed/updated.
 
 ### Step `#4`: Setup configurations.
 
