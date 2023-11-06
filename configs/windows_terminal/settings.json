@@ -182,7 +182,6 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
-                "startingDirectory": "D:\\VoxellDevelopment"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -214,7 +213,6 @@
                 "hidden": false,
                 "name": "Nushell",
                 "source": "nu",
-                "startingDirectory": "D:\\develop"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
