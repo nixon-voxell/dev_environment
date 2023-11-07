@@ -152,15 +152,16 @@ def setup_configurations [] {
 
 # Create development directories
 def setup_develop_directories [] {
-  print_title $"Setup (ansi yellow)development(ansi default) directories.\n";
+  print_title $"Setup (ansi yellow)directories(ansi reset).\n";
 
+  print $"Creating (ansi yellow)develop(ansi reset) directory."
   mkdir ..\develop;
   mkdir ..\develop\projects;
   mkdir ..\develop\notes;
   mkdir ..\develop\other;
   mkdir ..\develop\temp;
 
-  # Show the final setup of the directories
+  # Show the final setup of the develop directories
   eza ..\develop -TL 2;
 }
 
