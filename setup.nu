@@ -109,6 +109,7 @@ def setup_configurations [] {
     # ===========================
     print $"Copying (ansi default_dimmed)terminal(ansi reset) configuration file\(s)..."
 
+    mkdir "~\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState";
     cp "configs\\windows_terminal\\settings.json" "~\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json";
 
     # ===========================
@@ -116,6 +117,7 @@ def setup_configurations [] {
     # ===========================
     print $"Copying (ansi purple)helix(ansi reset) configuration file\(s)..."
 
+    mkdir "~\\AppData\\Roaming\\helix";
     cp "configs\\helix\\config.toml" "~\\AppData\\Roaming\\helix\\config.toml";
     cp "configs\\helix\\languages.toml" "~\\AppData\\Roaming\\helix\\languages.toml";
     # Link helix runtime directory
@@ -140,10 +142,18 @@ def setup_configurations [] {
         for subfield in $subfields {
           let data = $fields | get $subfield;
 
-          git config --global $"($config).($subfield)" $"($data)"
+          git config --global $"($config).($subfield)" $"($data)";
         }
       }
     }
+
+    # ===========================
+    # Mprocs config
+    # ===========================
+    print $"Copying (ansi blue)mprocs(ansi reset) configuration file\(s)...";
+
+    mkdir "~\\AppData\\Roaming\\mprocs";
+    cp "configs\\mprocs\\mprocs.yaml" "~\\AppData\\Roaming\\mprocs\\mprocs.yaml";
   } else {
     print "Only Windows is supported at the moment.";
     return;
