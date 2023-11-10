@@ -2,7 +2,7 @@ def main [] {
   let packages = [{rustup -V}, {cargo -V}];
   let package_names = ["rustup", "cargo"];
 
-  let rust_tools = [ "eza", "fd-find", "mprocs", "git-graph", "git-delta" ];
+  let rust_tools = [ "eza", "fd-find", "mprocs", "git-graph", "git-delta", "bacon" ];
 
   print_step 1;
   check_package_installations $packages $package_names
