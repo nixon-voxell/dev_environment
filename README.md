@@ -24,6 +24,7 @@ These are the rust tools that will be installed during the setup:
 │ 2 │ mprocs    │
 │ 3 │ git-graph │
 │ 4 │ git-delta │
+│ 5 │ bacon     │
 ╰───┴───────────╯
 ```
 
