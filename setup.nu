@@ -52,7 +52,7 @@ def install_rust_tools [rust_tools: list] {
   print $rust_tools
 
   for rust_tool in $rust_tools {
-    print $"Intalling (ansi purple)($rust_tool)"
+    print $"Installing (ansi purple)($rust_tool)"
     nu -c $"cargo install ($rust_tool)"
   }
 }
