@@ -4,13 +4,16 @@
     "actions": 
     [
         {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": 
             {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
+                "action": "resizePane",
+                "direction": "left"
             },
-            "keys": "alt+shift+d"
+            "keys": "alt+shift+h"
         },
         {
             "command": 
@@ -22,18 +25,11 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "left"
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
             },
-            "keys": "alt+shift+h"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
+            "keys": "alt+shift+d"
         },
         {
             "command": 
@@ -52,20 +48,16 @@
             "keys": "ctrl+4"
         },
         {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
             },
             "keys": "ctrl+c"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "keys": "ctrl+8"
         },
         {
             "command": "unbound",
@@ -144,6 +136,18 @@
             "keys": "ctrl+shift+up"
         },
         {
+            "command": "unbound",
+            "keys": "ctrl+t"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "ctrl+8"
+        },
+        {
             "command": 
             {
                 "action": "switchToTab",
@@ -174,6 +178,14 @@
                 "index": 1
             },
             "keys": "ctrl+2"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "right"
+            },
+            "keys": "ctrl+alt+l"
         },
         {
             "command": 
@@ -253,6 +265,34 @@
                 "action": "scrollUp"
             },
             "keys": "ctrl+shift+k"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "up"
+            },
+            "keys": "ctrl+alt+k"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+h"
+        },
+        {
+            "command": 
+            {
+                "action": "swapPane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "command": "toggleSplitOrientation",
+            "keys": "alt+t"
         }
     ],
     "alwaysShowNotificationIcon": true,
