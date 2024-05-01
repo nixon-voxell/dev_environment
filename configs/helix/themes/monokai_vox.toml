@@ -7,3 +7,5 @@ inherits = "monokai_pro"
 "ui.statusline.inactive" = { bg = "base2" }
 "ui.background" = { bg = "base1" }
 "ui.cursorline" = { bg = "base0" }
+"ui.selection.primary" = { bg = "base4" }
+"ui.selection" = { bg = "base3" }
