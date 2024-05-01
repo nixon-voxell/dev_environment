@@ -1,5 +1,7 @@
 inherits = "monokai_pro"
 
-"ui.virtual.whitespace" = "base3"
+"ui.virtual.whitespace" = "base2"
 "ui.virtual.wrap" = "base5"
-"ui.statusline" = { bg = "base1" }
+"ui.statusline" = { bg = "base3" }
+"ui.statusline.inactive" = { bg = "base2" }
+"ui.background" = { bg = "base1" }
