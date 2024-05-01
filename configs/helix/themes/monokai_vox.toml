@@ -1,0 +1,5 @@
+inherits = "monokai_pro"
+
+"ui.virtual.whitespace" = "base3"
+"ui.statusline" = { bg = "base1" }
+"ui.cursor" = { modifiers = ['reversed'] }

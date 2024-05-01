@@ -120,6 +120,10 @@ def setup_configurations [] {
     mkdir "~\\AppData\\Roaming\\helix";
     cp "configs\\helix\\config.toml" "~\\AppData\\Roaming\\helix\\config.toml";
     cp "configs\\helix\\languages.toml" "~\\AppData\\Roaming\\helix\\languages.toml";
+    # Link theme directory
+    if ("~\\AppData\\Roaming\\helix\\theme" | path exists) == false {
+      mklink /J ~\AppData\Roaming\helix\themes configs\helix\themes;
+    }
     # Link helix runtime directory
     if ("~\\AppData\\Roaming\\helix\\runtime" | path exists) == false {
       mklink /J ~\AppData\Roaming\helix\runtime helix\runtime;
