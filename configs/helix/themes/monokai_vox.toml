@@ -1,8 +1,9 @@
 inherits = "monokai_pro"
 
 "ui.virtual.whitespace" = "base2"
+"ui.virtual.indent-guide" = "base3"
 "ui.virtual.wrap" = "base5"
 "ui.statusline" = { bg = "base3" }
 "ui.statusline.inactive" = { bg = "base2" }
 "ui.background" = { bg = "base1" }
-"ui.cursorline" = { bg = "base2" }
+"ui.cursorline" = { bg = "base0" }
