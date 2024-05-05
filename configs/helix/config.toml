@@ -1,4 +1,4 @@
-theme = "monokai_pro"
+theme = "monokai_vox"
 
 [editor]
 shell = ["nu", "-c"]
