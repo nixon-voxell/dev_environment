@@ -6,3 +6,6 @@ file-types = ["cs", "csx", "cake"]
 roots = ["sln", "csproj"]
 indent = { tab-width = 4, unit = "    " }
 auto-format = true
+
+[language-server.omnisharp]
+timeout = 10000
