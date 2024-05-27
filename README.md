@@ -4,7 +4,7 @@ Minimal nu script to setup and update development environment in [Nushell](https
 
 ## How to use?
 
-1. Install [Nushell](https://www.nushell.sh/).
+1. [Install Nushell](https://www.nushell.sh/book/installation.html).
 2. In Nushell, run `nu setup.nu`.
 
 ## Steps
