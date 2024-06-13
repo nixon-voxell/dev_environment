@@ -100,10 +100,9 @@ def setup_helix_editor [--force (-f)] {
 def setup_configurations [] {
     print_title $"Setup (ansi yellow)configurations(ansi default).\n";
 
-    let host_name = sys | get host | get name;
     let app_path = get_app_path;
 
-    echo $"Detected system host: (ansi blue)($host_name)(ansi reset)";
+    print $"Detected system host: (ansi blue)($nu.os-info.family)(ansi reset)";
 
     if $nu.os-info.family == "windows" {
         # ===========================
@@ -111,8 +110,9 @@ def setup_configurations [] {
         # ===========================
         print $"Copying (ansi default_dimmed)windows terminal(ansi reset) configuration file\(s)...";
 
-        mkdir ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState;
-        cp configs/windows_terminal/settings.json ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json;
+        let $folder = $env.LOCALAPPDATA + "\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState";
+        mkdir $folder;
+        cp configs\windows_terminal\settings.json ($folder + "\\settings.json");
     }
 
     # ===========================
