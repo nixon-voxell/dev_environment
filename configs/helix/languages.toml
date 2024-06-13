@@ -1,3 +1,8 @@
+# Rust
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+
+# C-sharp
 [[language]]
 name = "c-sharp"
 scope = "source.csharp"
@@ -9,3 +14,9 @@ auto-format = true
 
 [language-server.omnisharp]
 timeout = 10000
+
+# Typst
+[[language]]
+name = "typst"
+formatter = { command = "typstyle" }
+auto-format = true
