@@ -2,7 +2,8 @@ def main [] {
     let packages = [{rustup -V}, {cargo -V}];
     let package_names = ["rustup", "cargo"];
 
-    let rust_tools = [ "eza", "fd-find", "mprocs", "git-graph", "git-delta", "bacon" ];
+    let rust_tools = [ "eza", "fd-find", "git-graph", "git-delta", "bacon" ];
+    # let rust_tools = [ "eza", "fd-find", "mprocs", "git-graph", "git-delta", "bacon" ];
 
     print_step 1;
     check_package_installations $packages $package_names
@@ -92,7 +93,7 @@ def setup_helix_editor [--force (-f)] {
         cargo install --locked --path helix-term;
     }
 
-    # Returnt to root directory
+    # Return to root directory
     cd ..;
 }
 
@@ -100,69 +101,75 @@ def setup_configurations [] {
     print_title $"Setup (ansi yellow)configurations(ansi default).\n";
 
     let host_name = sys | get host | get name;
+    let app_path = get_app_path;
 
     echo $"Detected system host: (ansi blue)($host_name)(ansi reset)";
 
-    if $host_name == "Windows" {
+    if $nu.os-info.family == "windows" {
         # ===========================
         # Windows terminal
         # ===========================
-        print $"Copying (ansi default_dimmed)terminal(ansi reset) configuration file\(s)..."
+        print $"Copying (ansi default_dimmed)windows terminal(ansi reset) configuration file\(s)...";
 
         mkdir ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState;
         cp configs/windows_terminal/settings.json ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json;
+    }
 
-        # ===========================
-        # Helix
-        # ===========================
-        print $"Copying (ansi purple)helix(ansi reset) configuration file\(s)..."
+    # ===========================
+    # Helix
+    # ===========================
+    print $"Copying (ansi purple)helix(ansi reset) configuration file\(s)...";
 
-        mkdir ~/AppData/Roaming/helix;
-        cp configs/helix/config.toml ~/AppData/Roaming/helix/config.toml;
-        cp configs/helix/languages.toml ~/AppData/Roaming/helix/languages.toml;
-        # Link theme directory
-        if ("~/AppData/Roaming/helix/theme" | path exists) == false {
-            symlink configs\helix\themes ~\AppData\Roaming\helix\themes;
-            # mklink /J ~\AppData\Roaming\helix\themes configs\helix\themes;
-        }
-        # Link helix runtime directory
-        if ("~/AppData/Roaming/helix/runtime" | path exists) == false {
-            symlink helix\runtime ~\AppData\Roaming\helix\runtime;
-            # mklink /J ~\AppData\Roaming\helix\runtime helix\runtime;
-        }
+    # Link config.toml file
+    mkdir $app_path helix;
+    mut target_path = $app_path + "helix\\config.toml";
+    if ($target_path | path exists) == false {
+        symlink configs\helix\config.toml $target_path;
+    }
+    # Link languages.toml file
+    $target_path = $app_path + "helix\\languages.toml";
+    if ($target_path | path exists) == false {
+        symlink configs\helix\languages.toml $target_path;
+    }
+    # Link themes directory
+    $target_path = $app_path + "helix\\themes";
+    if ($target_path | path exists) == false {
+        symlink configs\helix\themes $target_path;
+    }
+    # Link runtime directory
+    $target_path = $app_path + "helix\\runtime";
+    if ($target_path | path exists) == false {
+        symlink helix\runtime $target_path;
+    }
 
-        # ===========================
-        # Git config
-        # ===========================
-        print $"Setting (ansi yellow)git(ansi reset) configuration\(s)..."
+    # ===========================
+    # Mprocs config
+    # ===========================
+    # print $"Copying (ansi blue)mprocs(ansi reset) configuration file\(s)...";
 
-        let gitconfig = open configs\git\gitconfig.toml;
-        let configs = $gitconfig | columns;
+    # mkdir ~/AppData/Roaming/mprocs;
+    # cp configs/mprocs/mprocs.yaml ~/AppData/Roaming/mprocs/mprocs.yaml;
 
-        for config in $configs {
-            let fields = ($gitconfig | get $config);
+    # ===========================
+    # Git config
+    # ===========================
+    print $"Setting (ansi yellow)git(ansi reset) configuration\(s)..."
 
-            for field in $fields {
-                let subfields = ($field | columns);
+    let gitconfig = open configs\git\gitconfig.toml;
+    let configs = $gitconfig | columns;
 
-                for subfield in $subfields {
-                    let data = $fields | get $subfield;
+    for config in $configs {
+        let fields = ($gitconfig | get $config);
 
-                    git config --global $"($config).($subfield)" $"($data)";
-                }
+        for field in $fields {
+            let subfields = ($field | columns);
+
+            for subfield in $subfields {
+                let data = $fields | get $subfield;
+
+                git config --global $"($config).($subfield)" $"($data)";
             }
         }
-
-        # ===========================
-        # Mprocs config
-        # ===========================
-        print $"Copying (ansi blue)mprocs(ansi reset) configuration file\(s)...";
-
-        mkdir ~/AppData/Roaming/mprocs;
-        cp configs/mprocs/mprocs.yaml ~/AppData/Roaming/mprocs/mprocs.yaml;
-    } else {
-        print "Only Windows is supported at the moment.";
-        return;
     }
 }
 
@@ -209,16 +216,24 @@ export def symlink [
     existing: path   # The existing file
     link_name: path  # The name of the symlink
 ] {
-    let existing = ($existing | path expand -s)
-    let link_name = ($link_name | path expand)
+    let existing = ($existing | path expand -s);
+    let link_name = ($link_name | path expand);
 
     if $nu.os-info.family == 'windows' {
         if ($existing | path type) == 'dir' {
-            mklink /J $link_name $existing
+            mklink /D $link_name $existing
         } else {
             mklink $link_name $existing
         }
     } else {
         ln -s $existing $link_name | ignore
+    }
+}
+
+def get_app_path [] {
+    if $nu.os-info.family == "windows" {
+        return "~\\AppData\\Roaming\\";
+    } else {
+        return "~\\.config\\";
     }
 }
