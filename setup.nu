@@ -237,6 +237,6 @@ def get_app_path [] -> string {
     if $nu.os-info.family == "windows" {
         return ($env.APPDATA | into string | str replace -a '\' '/');
     } else {
-        return ($env.PWD | into string);
+        return (($env.HOME | into string) + "/.config");
     }
 }
