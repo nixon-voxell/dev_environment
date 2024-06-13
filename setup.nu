@@ -124,22 +124,22 @@ def setup_configurations [] {
     mkdir $app_path \helix;
     mut target_path = $app_path + "\\helix\\config.toml";
     if ($target_path | path exists) == false {
-        symlink configs\helix\config.toml $target_path;
+        symlink .\configs\helix\config.toml $target_path;
     }
     # Link languages.toml file
     $target_path = $app_path + "\\helix\\languages.toml";
     if ($target_path | path exists) == false {
-        symlink configs\helix\languages.toml $target_path;
+        symlink .\configs\helix\languages.toml $target_path;
     }
     # Link themes directory
     $target_path = $app_path + "\\helix\\themes";
     if ($target_path | path exists) == false {
-        symlink configs\helix\themes $target_path;
+        symlink .\configs\helix\themes $target_path;
     }
     # Link runtime directory
     $target_path = $app_path + "\\helix\\runtime";
     if ($target_path | path exists) == false {
-        symlink helix\runtime $target_path;
+        symlink .\helix\runtime $target_path;
     }
 
     # ===========================
