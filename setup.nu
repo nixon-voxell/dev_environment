@@ -1,5 +1,5 @@
 def main [] {
-    let packages = [{rustup -V}, {cargo -V}];
+    let packages = [{rustc -V}, {cargo -V}];
     let package_names = ["rustup", "cargo"];
 
     let rust_tools = [ "eza", "fd-find", "git-graph", "git-delta", "bacon" ];
@@ -110,36 +110,37 @@ def setup_configurations [] {
         # ===========================
         print $"Copying (ansi default_dimmed)windows terminal(ansi reset) configuration file\(s)...";
 
-        let $folder = $env.LOCALAPPDATA + "\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState";
+        let $folder = $env.LOCALAPPDATA + "/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState";
         mkdir $folder;
-        cp configs\windows_terminal\settings.json ($folder + "\\settings.json");
+        cp configs/windows_terminal/settings.json ($folder + "/settings.json");
     }
 
     # ===========================
     # Helix
     # ===========================
-    print $"Copying (ansi purple)helix(ansi reset) configuration file\(s)...";
+    print $"Linking (ansi purple)helix(ansi reset) configuration file\(s)...";
 
     # Link config.toml file
-    mkdir $app_path \helix;
-    mut target_path = $app_path + "\\helix\\config.toml";
+    mkdir ($app_path + "/helix");
+    mut target_path = $app_path + "/helix/config.toml";
+    print $target_path;
     if ($target_path | path exists) == false {
-        symlink .\configs\helix\config.toml $target_path;
+        symlink configs/helix/config.toml $target_path;
     }
     # Link languages.toml file
-    $target_path = $app_path + "\\helix\\languages.toml";
+    $target_path = $app_path + "/helix/languages.toml";
     if ($target_path | path exists) == false {
-        symlink .\configs\helix\languages.toml $target_path;
+        symlink configs/helix/languages.toml $target_path;
     }
     # Link themes directory
-    $target_path = $app_path + "\\helix\\themes";
+    $target_path = $app_path + "/helix/themes";
     if ($target_path | path exists) == false {
-        symlink .\configs\helix\themes $target_path;
+        symlink configs/helix/themes $target_path;
     }
     # Link runtime directory
-    $target_path = $app_path + "\\helix\\runtime";
+    $target_path = $app_path + "/helix/runtime";
     if ($target_path | path exists) == false {
-        symlink .\helix\runtime $target_path;
+        symlink helix/runtime $target_path;
     }
 
     # ===========================
@@ -155,7 +156,7 @@ def setup_configurations [] {
     # ===========================
     print $"Setting (ansi yellow)git(ansi reset) configuration\(s)..."
 
-    let gitconfig = open configs\git\gitconfig.toml;
+    let gitconfig = open configs/git/gitconfig.toml;
     let configs = $gitconfig | columns;
 
     for config in $configs {
@@ -178,14 +179,14 @@ def setup_develop_directories [] {
     print_title $"Setup (ansi yellow)directories(ansi default).\n";
 
     print $"Creating (ansi yellow)develop(ansi reset) directory."
-    mkdir ..\develop;
-    mkdir ..\develop\projects;
-    mkdir ..\develop\notes;
-    mkdir ..\develop\other;
-    mkdir ..\develop\temp;
+    mkdir ../develop;
+    mkdir ../develop/projects;
+    mkdir ../develop/notes;
+    mkdir ../develop/other;
+    mkdir ../develop/temp;
 
     # Show the final setup of the develop directories
-    eza ..\develop -TL 2;
+    eza ../develop -TL 2;
 }
 
 # Check if a given package is installed via a closure.
@@ -216,10 +217,12 @@ export def symlink [
     existing: path   # The existing file
     link_name: path  # The name of the symlink
 ] {
-    let existing = ($existing | path expand -s);
-    let link_name = ($link_name | path expand);
+    mut existing: path = ($existing | path expand -s);
+    mut link_name: path = ($link_name | path expand);
 
     if $nu.os-info.family == 'windows' {
+        $existing = ($existing | str replace -a '/' '\');
+        $link_name = ($link_name | str replace -a '/' '\');
         if ($existing | path type) == 'dir' {
             mklink /D $link_name $existing
         } else {
@@ -230,10 +233,10 @@ export def symlink [
     }
 }
 
-def get_app_path [] {
+def get_app_path [] -> string {
     if $nu.os-info.family == "windows" {
-        return $env.APPDATA;
+        return ($env.APPDATA | into string | str replace -a '\' '/');
     } else {
-        return $env.PWD;
+        return ($env.PWD | into string);
     }
 }
