@@ -234,6 +234,6 @@ def get_app_path [] {
     if $nu.os-info.family == "windows" {
         return $env.APPDATA;
     } else {
-        return "~\\.config\\";
+        return $env.PWD;
     }
 }
