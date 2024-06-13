@@ -121,23 +121,23 @@ def setup_configurations [] {
     print $"Copying (ansi purple)helix(ansi reset) configuration file\(s)...";
 
     # Link config.toml file
-    mkdir $app_path helix;
-    mut target_path = $app_path + "helix\\config.toml";
+    mkdir $app_path \helix;
+    mut target_path = $app_path + "\\helix\\config.toml";
     if ($target_path | path exists) == false {
         symlink configs\helix\config.toml $target_path;
     }
     # Link languages.toml file
-    $target_path = $app_path + "helix\\languages.toml";
+    $target_path = $app_path + "\\helix\\languages.toml";
     if ($target_path | path exists) == false {
         symlink configs\helix\languages.toml $target_path;
     }
     # Link themes directory
-    $target_path = $app_path + "helix\\themes";
+    $target_path = $app_path + "\\helix\\themes";
     if ($target_path | path exists) == false {
         symlink configs\helix\themes $target_path;
     }
     # Link runtime directory
-    $target_path = $app_path + "helix\\runtime";
+    $target_path = $app_path + "\\helix\\runtime";
     if ($target_path | path exists) == false {
         symlink helix\runtime $target_path;
     }
@@ -232,7 +232,7 @@ export def symlink [
 
 def get_app_path [] {
     if $nu.os-info.family == "windows" {
-        return "~\\AppData\\Roaming\\";
+        return $env.APPDATA;
     } else {
         return "~\\.config\\";
     }
