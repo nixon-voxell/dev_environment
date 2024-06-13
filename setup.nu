@@ -123,7 +123,6 @@ def setup_configurations [] {
     # Link config.toml file
     mkdir ($app_path + "/helix");
     mut target_path = $app_path + "/helix/config.toml";
-    print $target_path;
     if ($target_path | path exists) == false {
         symlink configs/helix/config.toml $target_path;
     }
