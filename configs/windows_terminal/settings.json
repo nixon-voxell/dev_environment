@@ -299,7 +299,7 @@
     "alwaysShowTabs": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{aab79973-318f-43b6-a9bc-b4096493753f}",
+    "defaultProfile": "{ed7251ae-9d46-4af5-8f9b-8e292c60f8b9}",
     "disableAnimations": false,
     "experimental.rendering.forceFullRepaint": false,
     "experimental.rendering.software": false,
@@ -348,35 +348,24 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "closeOnExit": "always",
-                "guid": "{1effc4c9-295a-52fb-9dc3-5a84146efd2f}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{b0782064-7850-5062-ad10-5a3a74aa0e34}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
                 "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
                 "hidden": true,
                 "name": "Visual Studio Debug Console",
                 "source": "VSDebugConsole"
             },
             {
-                "guid": "{aab79973-318f-43b6-a9bc-b4096493753f}",
-                "hidden": false,
-                "name": "Nushell",
-                "source": "nu"
-            },
-            {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": true,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "commandline": "C:\\Users\\cheng\\AppData\\Local\\Programs\\nu\\bin\\nu.exe",
+                "guid": "{ed7251ae-9d46-4af5-8f9b-8e292c60f8b9}",
+                "hidden": false,
+                "icon": "C:\\Users\\cheng\\AppData\\Local\\Programs\\nu\\nu.ico",
+                "name": "Nushell",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
