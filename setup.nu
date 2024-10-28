@@ -54,7 +54,7 @@ def install_rust_tools [rust_tools: list] {
 
     for rust_tool in $rust_tools {
         print $"Installing (ansi purple)($rust_tool)"
-        nu -c $"cargo install ($rust_tool)"
+        nu -c $"cargo install --locked ($rust_tool)"
     }
 }
 
