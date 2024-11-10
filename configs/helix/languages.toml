@@ -16,7 +16,11 @@ auto-format = true
 timeout = 10000
 
 # Typst
+[language-server.tinymist]
+command = "tinymist"
+
 [[language]]
 name = "typst"
+language-servers = ["tinymist"]
 formatter = { command = "typstyle" }
 auto-format = true
