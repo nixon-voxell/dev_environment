@@ -15,7 +15,7 @@
                 "direction": "left"
             },
             "id": "User.resizePane.2A0DA8E0",
-            "keys": "alt+shift+h"
+            "keys": "alt+shift+m"
         },
         {
             "command": 
@@ -31,7 +31,7 @@
                 "action": "scrollDown"
             },
             "id": "User.scrollDown.0",
-            "keys": "ctrl+shift+j"
+            "keys": "ctrl+shift+n"
         },
         {
             "command": 
@@ -40,7 +40,7 @@
                 "direction": "down"
             },
             "id": "User.swapPane.F747588A",
-            "keys": "ctrl+alt+j"
+            "keys": "ctrl+alt+n"
         },
         {
             "command": 
@@ -49,7 +49,7 @@
                 "direction": "left"
             },
             "id": "User.swapPane.2A0DA8E0",
-            "keys": "ctrl+alt+h"
+            "keys": "ctrl+alt+m"
         },
         {
             "command": 
@@ -77,15 +77,7 @@
                 "direction": "up"
             },
             "id": "User.resizePane.6CD791B",
-            "keys": "alt+shift+k"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "keys": "ctrl+shift+up"
+            "keys": "alt+shift+e"
         },
         {
             "command": "paste",
@@ -225,7 +217,7 @@
                 "direction": "right"
             },
             "id": "User.swapPane.87C324ED",
-            "keys": "ctrl+alt+l"
+            "keys": "ctrl+alt+i"
         },
         {
             "command": 
@@ -248,23 +240,6 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "id": "User.moveFocus.F747588A",
-            "keys": "alt+j"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+down"
-        },
-        {
-            "command": 
-            {
                 "action": "switchToTab",
                 "index": 4294967295
             },
@@ -275,10 +250,10 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "left"
+                "direction": "down"
             },
-            "id": "User.moveFocus.2A0DA8E0",
-            "keys": "alt+h"
+            "id": "User.moveFocus.F747588A",
+            "keys": "alt+n"
         },
         {
             "command": 
@@ -286,7 +261,8 @@
                 "action": "moveFocus",
                 "direction": "left"
             },
-            "keys": "ctrl+left"
+            "id": "User.moveFocus.2A0DA8E0",
+            "keys": "alt+m"
         },
         {
             "command": 
@@ -295,15 +271,7 @@
                 "direction": "right"
             },
             "id": "User.moveFocus.87C324ED",
-            "keys": "alt+l"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+right"
+            "keys": "alt+i"
         },
         {
             "command": 
@@ -312,15 +280,7 @@
                 "direction": "up"
             },
             "id": "User.moveFocus.6CD791B",
-            "keys": "alt+k"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+up"
+            "keys": "alt+e"
         },
         {
             "command": 
@@ -329,15 +289,7 @@
                 "direction": "down"
             },
             "id": "User.resizePane.F747588A",
-            "keys": "alt+shift+j"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+shift+down"
+            "keys": "alt+shift+n"
         },
         {
             "command": 
@@ -346,15 +298,7 @@
                 "direction": "right"
             },
             "id": "User.resizePane.87C324ED",
-            "keys": "alt+shift+l"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "right"
-            },
-            "keys": "ctrl+shift+right"
+            "keys": "alt+shift+i"
         },
         {
             "command": 
@@ -362,7 +306,7 @@
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+shift+e"
         },
         {
             "command": 
@@ -371,7 +315,7 @@
                 "direction": "up"
             },
             "id": "User.swapPane.6CD791B",
-            "keys": "ctrl+alt+k"
+            "keys": "ctrl+alt+e"
         },
         {
             "command": "toggleSplitOrientation",
