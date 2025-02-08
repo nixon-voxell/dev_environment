@@ -27,6 +27,7 @@ enable = true
 
 [keys.normal]
 "C-i" = "jump_forward"
+"_" = "@:"
 
 [keys.insert]
 "C-b" = "move_char_left"
@@ -38,6 +39,16 @@ enable = true
 "C-a" = "goto_line_start"
 "C-s" = "goto_first_nonwhitespace"
 "C-e" = "goto_line_end_newline"
+
+[keys.normal.space.w]
+"E" = "swap_view_up"
+"N" = "swap_view_down"
+"M" = "swap_view_left"
+"I" = "swap_view_right"
+"e" = "jump_view_up"
+"n" = "jump_view_down"
+"m" = "jump_view_left"
+"i" = "jump_view_right"
 
 [editor.search]
 smart-case = false
