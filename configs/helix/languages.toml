@@ -21,6 +21,7 @@ command = "tinymist"
 
 [[language]]
 name = "typst"
+indent = { tab-width = 4, unit = "    " }
 language-servers = ["tinymist"]
-formatter = { command = "typstyle" }
+formatter = { command = "typstyle", args = ["--tab-width=4"] }
 auto-format = true
