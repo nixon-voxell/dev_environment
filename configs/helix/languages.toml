@@ -16,12 +16,13 @@ auto-format = true
 timeout = 10000
 
 # Typst
-[language-server.tinymist]
-command = "tinymist"
-
 [[language]]
 name = "typst"
-indent = { tab-width = 4, unit = "    " }
+indent = { tab-width = 2, unit = "  " }
 language-servers = ["tinymist"]
-formatter = { command = "typstyle", args = ["--tab-width=4"] }
+formatter = { command = "typstyle", args = ["--tab-width=2"] }
 auto-format = true
+
+[language-server.tinymist]
+command = "tinymist"
+config = { formatterIndentSize = 2 }
