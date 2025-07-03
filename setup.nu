@@ -231,7 +231,7 @@ export def symlink [
     }
 }
 
-def get_app_path [] -> string {
+def get_app_path []: nothing -> string {
     if $nu.os-info.family == "windows" {
         return ($env.APPDATA | into string | str replace -a '\' '/');
     } else {
